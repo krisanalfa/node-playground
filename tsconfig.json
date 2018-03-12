@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2017",
+    "outDir": "./dist",
+    "sourceMap": false,
+    "newLine": "LF",
+    "experimentalDecorators": true,
+    "types": [
+      "node"
+    ],
+    "emitDecoratorMetadata": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}

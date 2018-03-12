@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "dependencies": {
+    "debug": "^3.1.0",
+    "koa": "^2.5.0",
+    "koa-router": "^7.4.0",
+    "randomstring": "^1.1.5",
+    "uuid": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/debug": "0.0.30",
+    "@types/koa": "^2.0.44",
+    "@types/koa-router": "^7.0.27",
+    "@types/randomstring": "^1.1.6",
+    "@types/uuid": "^3.4.3",
+    "cross-env": "^5.1.4",
+    "nodemon": "^1.17.1",
+    "npm-run-all": "^4.1.2",
+    "rimraf": "^2.6.2",
+    "ts-node": "^5.0.1",
+    "tslint": "^5.9.1",
+    "tslint-config-standard": "^7.0.0",
+    "typescript": "^2.7.2"
+  },
+  "scripts": {
+    "lint": "tslint --project .",
+    "clean": "rimraf dist",
+    "compile": "tsc",
+    "dev": "cross-env DEBUG=* nodemon --watch 'src/**/*' --ext ts --ignore '*.d.ts' --exec 'ts-node' ./src/index.ts",
+    "build": "npm-run-all --serial lint clean compile",
+    "start": "node dist/index.js"
+  }
+}

@@ -1,0 +1,15 @@
+.git/
+node_modules/
+coverage/
+
+dist/
+
+.dockerignore
+Dockerfile
+
+.gitignore
+
+tslint.json
+tsconfig.json
+.editorconfig
+.vscode/

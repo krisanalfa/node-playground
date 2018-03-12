@@ -1,0 +1,7 @@
+version: '3'
+services:
+  web:
+    build: .
+    user: node
+    image: 'lab/node-playground'
+    container_name: lab-node-playground

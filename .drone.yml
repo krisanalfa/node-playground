@@ -1,0 +1,20 @@
+pipeline:
+  build:
+    image: node:carbon
+    commands:
+      - npm install
+      - npm run build
+  ecr:
+    image: plugins/ecr
+    access_key: $$AWS_ACCESS_KEY
+    secret_key: $$AWS_SECRET_KEY
+    repo: $$AWS_ACCOUNT_ID.dkr.ecr.ap-southeast-2.amazonaws.com/node-playground
+    registry: $$AWS_ACCOUNT_ID.dkr.ecr.ap-southeast-2.amazonaws.com
+    file: Dockerfile
+  rancher:
+    image: peloton/drone-rancher
+    url: $$RANCHER_URL
+    access_key: $$RANCHER_ACCESS_KEY
+    secret_key: $$RANCHER_SECRET_KEY
+    service: services/node-playground
+    docker_image: $$AWS_ACCOUNT_ID.dkr.ecr.ap-southeast-2.amazonaws.com/node-playground:latest
