@@ -5,3 +5,5 @@ services:
     user: node
     image: 'lab/node-playground'
     container_name: lab-node-playground
+    ports:
+      - "3001:3001"

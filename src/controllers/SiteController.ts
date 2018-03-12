@@ -6,7 +6,7 @@ export default class SiteController {
     context.body = {
       message: 'success',
       data: {
-        '$hash': random()
+        '$hashes': [...(function* () { let i = 0; while (i < 8) yield i++ })()].map((): string => random())
       }
     }
   }
