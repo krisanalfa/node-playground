@@ -1,10 +1,9 @@
 pipeline {
   agent {
-    docker {
-      image 'node:alpine'
-      args '-p 3001:3001'
-    }
+    agent { dockerfile true }
   }
+
+  tools { nodejs "9.8.0" }
 
   stages {
     stage('Build') {
@@ -16,13 +15,15 @@ pipeline {
 
     stage('Test') {
       steps {
-        echo 'Testing..'
+        sh 'npm install'
+        sh 'npm run lint'
       }
     }
 
     stage('Deploy') {
       steps {
-        echo 'Deploying....'
+        sh 'npm install'
+        sh 'npm run build'
       }
     }
   }
