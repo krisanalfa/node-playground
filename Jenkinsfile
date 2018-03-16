@@ -1,9 +1,5 @@
 pipeline {
-  agent {
-    agent { dockerfile true }
-  }
-
-  tools { nodejs "9.8.0" }
+  agent { dockerfile true }
 
   stages {
     stage('Build') {
@@ -22,8 +18,7 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        sh 'npm install'
-        sh 'npm run build'
+        echo 'Deploying...'
       }
     }
   }
