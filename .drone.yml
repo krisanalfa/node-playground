@@ -16,8 +16,8 @@ pipeline:
   rancher:
     image: peloton/drone-rancher
     url: http://52.64.80.9/v1/projects/1a1291
-    access_key: D1925580C6A42A957CB0
-    secret_key: Fkd8kHTUSjE9HST5ajuXbvMFPQiW6pgpMsqSDLag
+    access_key: $$RANCHER_ACCESS_KEY
+    secret_key: $$RANCHER_SECRET_KEY
     service: services/hello-typescript
     docker_image: 409735724746.dkr.ecr.ap-southeast-2.amazonaws.com/hello-typescript:latest
     confirm: true
