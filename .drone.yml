@@ -13,6 +13,7 @@ pipeline:
     secrets: [ ecr_access_key, ecr_secret_key ]
     tags: development
     file: Dockerfile
+    region: ap-southeast-2
   rancher:
     image: peloton/drone-rancher
     url: http://52.64.80.9/v1/projects/1a1291
