@@ -6,6 +6,13 @@ pipeline:
       - npm run build
     environment:
       - PORT=3000
+  test:
+    image: node:alpine
+    commands:
+      - npm install
+      - npm run lint
+    environment:
+      - PORT=3000
   ecr:
     image: plugins/ecr
     registry: 409735724746.dkr.ecr.ap-southeast-2.amazonaws.com
