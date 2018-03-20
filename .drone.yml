@@ -8,8 +8,8 @@ pipeline:
       - PORT=3000
   ecr:
     image: plugins/ecr
-    registry: 409735724746.dkr.ecr.ap-southeast-2.amazonaws.com/hello-typescript
-    repo: 409735724746.dkr.ecr.ap-southeast-2.amazonaws.com
+    registry: 409735724746.dkr.ecr.ap-southeast-2.amazonaws.com
+    repo: hello-typescript
     secrets: [ ecr_access_key, ecr_secret_key ]
     tags: development
     file: Dockerfile
