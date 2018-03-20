@@ -7,7 +7,7 @@ export default class SiteController {
       version: '0.0.1',
       message: 'success',
       data: {
-        '$hashes': [...(function* () { let i = 0; while (i <= 10) yield i++ })()].map((): string => random()),
+        '$hashes': [...(function* () { let i = 0; while (i <= 10) yield i++ })()].map((): string => random())
       }
     }
   }
