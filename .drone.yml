@@ -15,10 +15,11 @@ pipeline:
     file: Dockerfile
     region: ap-southeast-2
   rancher:
-    image: peloton/drone-rancher
-    url: http://52.64.80.9
-    secrets: [ rancher_access_key, rancher_secret_key ]
-    service: services/hello-typescript
+    image: majest/drone-rancher
+    rancher_url: http://52.64.80.9
+    secrets: [ plugin_access_key, plugin_secret_key ]
+    stack: services
+    service: hello-typescript
     docker_image: 409735724746.dkr.ecr.ap-southeast-2.amazonaws.com/hello-typescript:development
     confirm: true
     timeout: 240
