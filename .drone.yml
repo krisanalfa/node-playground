@@ -16,7 +16,7 @@ pipeline:
     region: ap-southeast-2
   rancher:
     image: peloton/drone-rancher
-    url: http://52.64.80.9/v1/projects/1a1291
+    url: http://52.64.80.9
     access_key: $$RANCHER_ACCESS_KEY
     secret_key: $$RANCHER_SECRET_KEY
     service: services/hello-typescript
