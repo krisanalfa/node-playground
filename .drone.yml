@@ -4,23 +4,35 @@ pipeline:
     commands:
       - npm install
       - npm run build
+    environment:
+      - PORT=3000
   test:
     image: node:alpine
     commands:
       - npm install
       - npm run lint
+    environment:
+      - PORT=3000
   ecr:
     image: plugins/ecr
+    registry: 409735724746.dkr.ecr.ap-southeast-2.amazonaws.com
     repo: hello-typescript
-    secrets: [ ecr_access_key, ecr_secret_key, ecr_registry ]
-    tags: "${DRONE_COMMIT_SHA:0:8}"
+    secrets: [ ecr_access_key, ecr_secret_key ]
+    tags: development
     file: Dockerfile
     region: ap-southeast-2
     environment:
       - PORT=3000
+      - NODE_ENV=production
+    when:
+      branch: develop
   rancher:
     image: peloton/drone-rancher
-    secrets: [ rancher_url, rancher_access_key, rancher_secret_key, rancher_docker_image ]
+    url: http://52.64.80.9
+    secrets: [ rancher_access_key, rancher_secret_key ]
     service: services/hello-typescript
+    docker_image: 409735724746.dkr.ecr.ap-southeast-2.amazonaws.com/hello-typescript:development
     confirm: true
-    timeout: 180
+    timeout: 240
+    when:
+      branch: develop
